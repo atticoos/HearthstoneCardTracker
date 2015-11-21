@@ -21,8 +21,8 @@ module.exports = {
       opponentWindow = null
     });
 
-    playerWindow.loadUrl('file://' + __dirname + '/../windows/window.html');
-    opponentWindow.loadUrl('file://' + __dirname + '/../windows/window.html');
+    playerWindow.loadUrl('file://' + __dirname + '/../windows/player-window.html');
+    opponentWindow.loadUrl('file://' + __dirname + '/../windows/opponent-window.html');
 
     playerWindow.webContents.openDevTools();
     opponentWindow.webContents.openDevTools();
