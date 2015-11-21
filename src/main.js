@@ -1,7 +1,7 @@
 var electron = require('electron');
 var app = electron.app;
-var Events = require('./log-reader/events');
-var WindowManager = require('./windows/manager');
+var Events = require('./server/events');
+var WindowManager = require('./server/window-manager');
 
 require('crash-reporter').start();
 

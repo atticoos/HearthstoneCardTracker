@@ -2,8 +2,8 @@ describe('Logs: Asset', function () {
   var chai = require('chai'),
       sinon = require('sinon'),
       sinonChai = require('sinon-chai'),
-      Game = require('../../../src/game'),
-      AssetHandler = require('../../../src/log-reader/handlers/asset'),
+      Game = require('../../../src/server/game'),
+      AssetHandler = require('../../../src/server/handlers/asset'),
       assetHandler,
       expect,
       assert;

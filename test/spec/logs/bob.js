@@ -2,8 +2,8 @@ describe('Logs: Bob', function () {
   var chai = require('chai'),
       sinon = require('sinon'),
       sinonChai = require('sinon-chai'),
-      Game = require('../../../src/game'),
-      BobHandler = require('../../../src/log-reader/handlers/bob'),
+      Game = require('../../../src/server/game'),
+      BobHandler = require('../../../src/server/handlers/bob'),
       bobHandler,
       expect,
       assert;

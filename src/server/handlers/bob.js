@@ -1,5 +1,5 @@
 var Handler = require('./handler');
-var Game = require('../../game');
+var Game = require('../game');
 var _ = require('lodash');
 
 function BobHandler () {
