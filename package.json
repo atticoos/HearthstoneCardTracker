@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/main.js",
+    "start": "electron src/main.js",
     "test": "gulp test"
   },
   "author": "Atticus White <contact@atticuswhite.com> (http://atticuswhite.com/)",
