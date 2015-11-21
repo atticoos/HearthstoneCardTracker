@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
     mocha = require('gulp-mocha'),
+    less = require('gulp-less'),
     browserify = require('browserify'),
     reactify = require('reactify'),
     source = require('vinyl-source-stream');
@@ -28,6 +29,12 @@ gulp.task('react', function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('less', function () {
+  gulp.src('src/windows/less/main.less')
+  .pipe(less())
+  .pipe(gulp.dest('dist'));
+});
+
 gulp.task('testing', ['test'], function () {
   gulp.watch(['src/**/*.js', 'test/**/*.js'], ['test']);
 });
@@ -38,4 +45,7 @@ gulp.task('watch', ['react', 'testing'], function () {
     'src/windows/**/*.html',
     'src/windows/**/*.js'
   ], ['react']);
+  gulp.watch([
+    'src/windows/less/**/*.less'
+  ], ['less']);
 })

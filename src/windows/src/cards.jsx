@@ -32,7 +32,7 @@ var Cards = React.createClass({
   renderCards: function () {
     var rows = _.map(this.state.cards, function (card) {
       return (
-        <div>{ card.name }</div>
+        <div className="card">{ card.name }</div>
       );
     });
     return (
