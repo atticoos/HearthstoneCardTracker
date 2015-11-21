@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" href="../../dist/main.css" />
+  </head>
+  <body>
+    Opponent Cards
+    <div id="opponent-root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8085/client.js"></script>
+    <script type="text/javascript">
+    var f = new module.exports.Client('http://localhost:8085');
+    require('../../dist/bundle.js');
+    </script>
+
+  </body>
+</html>

@@ -2,6 +2,8 @@ var Handler = require('./handler');
 var Game = require('../game');
 var _ = require('lodash');
 
+console.log('POEWR GAME', Game);
+
 function PowerHandler () {
   var filters = [
     // game started
@@ -10,8 +12,9 @@ function PowerHandler () {
       handler: this.onGameStarted
     },
 
+    // enemy spell cast at a target
     {
-      pattern: /ACTION_START.*Entity=.*id=(\d+).*cardId=(\w+).*player=2.*BlockType=POWER.*Target=.*id=(\d+).*cardId=(\w+).*player=1.*/i,
+      pattern: /ACTION_START.*Entity=.*id=(\d+).*cardId=(\w+).*player=2.*BlockType=POWER.*Target=[^\d].*/i,
       handler: this.onOpponentAction
     }
   ];
