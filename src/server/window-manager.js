@@ -29,8 +29,6 @@ module.exports = {
       y: 10
     });
 
-    console.log('DISPLAY', electron.screen.getPrimaryDisplay());
-
     playerWindow.on('closed', function () {
       playerWindow = null;
     });
