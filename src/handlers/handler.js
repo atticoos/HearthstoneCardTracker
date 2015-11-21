@@ -11,12 +11,14 @@ Handler.prototype.matches = function (string) {
 };
 
 Handler.prototype.handle = function (string) {
-  var handler = _.find(this.filters, function (filter) {
+  _.chain(this.filters)
+  .filter(function (filter) {
     return filter.pattern.test(string);
-  });
-  if (handler) {
-    handler.handler.call(this, string);
-  }
+  }).each(function (filter) {
+    var matches = filter.pattern.exec(string);
+    filter.handler.apply(this, matches.slice(1, matches.length));
+  })
+  .run();
 };
 
 module.exports = Handler;

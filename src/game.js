@@ -1,5 +1,21 @@
 var Game = {};
 
+Game.setPlayingState = function () {
+  console.log('GAME PLAYING');
+};
+
+Game.setNotPlayingState = function () {
+  console.log('GAME STOPPED PLAYING');
+};
+
+Game.setRankedMode = function () {
+  console.log('ranked mode');
+};
+
+Game.cardPlayed = function (card) {
+  console.log('card played', card);
+};
+
 Game.onCollection = function () {
   console.log('on game collection screen');
 };

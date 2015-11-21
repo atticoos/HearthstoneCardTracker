@@ -1,18 +1,27 @@
 var Power = require('./power');
 var Bob = require('./bob');
+var Asset = require('./asset');
+var _ = require('lodash');
 var handlers = {
   Power: new Power(),
-  Bob: new Bob()
+  Bob: new Bob(),
+  Asset: new Asset()
 };
 
-module.exports = handlers;
-
 module.exports.getHandler = function (line) {
-  if (handlers.Power.matches(line)) {
-    // console.log('power', line);
-  }
-  if (handlers.Bob.matches(line)) {
-    handlers.Bob.handle(line);
-    // console.log('bob', line);
-  }
+  _(handlers).filter(function (handler) {
+    return handler.matches(line);
+  }).each(function (handler) {
+    handler.handle(line);
+  })
+  .run();
+
+  // var matchedHandler = _.find(handlers, function (handler) {
+  //   console.log('handler', handler.name, handler.matches);
+  //   return handler.matches(line);
+  // });
+  //
+  // if (matchedHandler) {
+  //   matchedHandler.handle(line);
+  // }
 };
