@@ -12,8 +12,12 @@ Game.setRankedMode = function () {
   console.log('ranked mode');
 };
 
-Game.cardPlayed = function (card) {
-  console.log('card played', card);
+Game.opponentCardDiscovered = function (card) {
+  console.log('opponent card discovered', card);
+};
+
+Game.playerCardDiscovered = function (card) {
+  console.log('player card discovered', card);
 };
 
 Game.onCollection = function () {

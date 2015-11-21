@@ -1,11 +1,13 @@
 var Power = require('./power');
 var Bob = require('./bob');
 var Asset = require('./asset');
+var Zone = require('./zone');
 var _ = require('lodash');
 var handlers = {
   Power: new Power(),
-  Bob: new Bob(),
-  Asset: new Asset()
+  // Bob: new Bob(),
+  // Asset: new Asset(),
+  Zone: new Zone()
 };
 
 module.exports.getHandler = function (line) {

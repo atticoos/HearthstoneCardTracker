@@ -11,6 +11,8 @@ function BobHandler () {
     {pattern: /(---RegisterScreenFriendly---)/i, handler: this.onFriendlyScreen},
     {pattern: /(---RegisterScreenForge---)/i, handler: this.onArenaScreen},
     {pattern: /(---RegisterProfileNotices---)/i, handler: this.onGameLoaded},
+    // queueing a game [Bob] play queue BGT_NORMAL
+    {pattern: /play queue (\w*)/i, handler: function () {}}
   ]
   Handler.call(this, 'Bob', filters);
 }

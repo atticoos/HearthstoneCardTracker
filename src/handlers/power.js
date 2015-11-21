@@ -10,10 +10,9 @@ function PowerHandler () {
       handler: this.onGameStarted
     },
 
-    // card played
     {
-      pattern: /FULL_ENTITY.*Updating.*id=(\d+).*cardId=(\w*)/i,
-      handler: this.cardPlayed
+      pattern: /ACTION_START.*Entity=.*id=(\d+).*cardId=(\w+).*player=2.*BlockType=POWER.*Target=.*id=(\d+).*cardId=(\w+).*player=1.*/i,
+      handler: this.onOpponentAction
     }
   ];
   Handler.call(this, 'Power', filters);
@@ -25,8 +24,8 @@ PowerHandler.prototype.onGameStarted = function () {
   Game.setPlayingState();
 };
 
-PowerHandler.prototype.cardPlayed = function (updateId, cardId) {
-  Game.cardPlayed(cardId);
+PowerHandler.prototype.onOpponentAction = function (id, cardId) {
+  Game.opponentCardDiscovered(cardId);
 };
 
 module.exports = PowerHandler;

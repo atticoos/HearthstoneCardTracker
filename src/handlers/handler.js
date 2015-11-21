@@ -16,8 +16,9 @@ Handler.prototype.handle = function (string) {
     return filter.pattern.test(string);
   }).each(function (filter) {
     var matches = filter.pattern.exec(string);
+    // console.log('match found for [' + this.name + ']', filter.pattern, string);
     filter.handler.apply(this, matches.slice(1, matches.length));
-  })
+  }.bind(this))
   .run();
 };
 
