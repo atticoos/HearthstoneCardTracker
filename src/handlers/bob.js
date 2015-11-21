@@ -1,15 +1,16 @@
 var Handler = require('./handler');
+var Game = require('../game');
 var _ = require('lodash');
 
 function BobHandler () {
   var filters = [
-    {pattern: /(---RegisterScreenCollectionManager---)/i, handler: this.onCollection.bind(this)},
-    {pattern: /(---RegisterFriendChallenge---)/i, handler: this.onFriendChallenge.bind(this)},
-    {pattern: /(---RegisterScreenPractice---)/i, handler: this.onPracticeScreen.bind(this)},
-    {pattern: /(---RegisterScreenTourneys---)/i, handler: this.onCasualScreen.bind(this)},
-    {pattern: /(---RegisterScreenFriendly---)/i, handler: this.onFriendlyScreen.bind(this)},
-    {pattern: /(---RegisterScreenForge---)/i, handler: this.onArenaScreen.bind(this)},
-    {pattern: /(---RegisterProfileNotices---)/i, handler: this.onGameLoaded.bind(this)},
+    {pattern: /(---RegisterScreenCollectionManager---)/i, handler: this.onCollection},
+    {pattern: /(---RegisterFriendChallenge---)/i, handler: this.onFriendChallenge},
+    {pattern: /(---RegisterScreenPractice---)/i, handler: this.onPracticeScreen},
+    {pattern: /(---RegisterScreenTourneys---)/i, handler: this.onCasualScreen},
+    {pattern: /(---RegisterScreenFriendly---)/i, handler: this.onFriendlyScreen},
+    {pattern: /(---RegisterScreenForge---)/i, handler: this.onArenaScreen},
+    {pattern: /(---RegisterProfileNotices---)/i, handler: this.onGameLoaded},
   ]
   Handler.call(this, 'Bob', filters);
 }
@@ -17,31 +18,31 @@ function BobHandler () {
 BobHandler.prototype = _.create(Handler.prototype, {constructor: BobHandler});
 
 BobHandler.prototype.onCollection = function () {
-  console.log('on game collection screen');
+  Game.onCollection();
 };
 
 BobHandler.prototype.onFriendChallenge = function () {
-  console.log('on friend challenge');
+  Game.onFriendChallenge();
 };
 
 BobHandler.prototype.onPracticeScreen = function () {
-  console.log('on practice screen');
+  Game.onPracticeScreen();
 };
 
 BobHandler.prototype.onCasualScreen = function () {
-  console.log('on play mode screen');
+  Game.onCasualScreen();
 };
 
 BobHandler.prototype.onFriendlyScreen = function () {
-  console.log('on friendly screen');
+  Game.onFriendlyScreen();
 };
 
 BobHandler.prototype.onArenaScreen = function () {
-  console.log('on arena screen');
+  Game.onArenaScreen();
 };
 
 BobHandler.prototype.onGameLoaded = function () {
-  console.log('on game loaded');
+  Game.onGameLoaded();
 };
 
 module.exports = BobHandler;

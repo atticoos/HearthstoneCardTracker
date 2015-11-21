@@ -15,7 +15,7 @@ Handler.prototype.handle = function (string) {
     return filter.pattern.test(string);
   });
   if (handler) {
-    handler.handler(string);
+    handler.handler.call(this, string);
   }
 };
 
