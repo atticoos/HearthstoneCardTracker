@@ -1,5 +1,5 @@
 var Cards = require('./cards');
-var Server = require('./server');
+var WindowManager = require('./window-manager');
 var GAME_STATE = {
   PLAYING: 'playing',
   IDLE: 'idle'
@@ -25,14 +25,14 @@ Game.setRankedMode = function () {
 Game.opponentCardDiscovered = function (cardId) {
   var card = Cards.getCardById(cardId);
   opponentCards.push(card);
-  Server.publish('/opponent', {cards: opponentCards});
+  WindowManager.updateOpponentWindowCards(opponentCards);
   console.log('opponent card discovered', card);
 };
 
 Game.playerCardDiscovered = function (cardId) {
   var card = Cards.getCardById(cardId);
   playerCards.push(card);
-  Server.publish('/player', {cards: playerCards});
+  WindowManager.updatePlayerWindowCards(playerCards);
   console.log('player card discovered', card);
 };
 

@@ -45,6 +45,12 @@ module.exports = {
     // playerWindow.webContents.openDevTools();
     // opponentWindow.webContents.openDevTools();
   },
+  updatePlayerWindowCards: function (cards) {
+    playerWindow.webContents.send('/player', {cards: cards});
+  },
+  updateOpponentWindowCards: function (cards) {
+    opponentWindow.webContents.send('/opponent', {cards: cards});
+  },
   playerWindow: playerWindow,
   opponentWindow: opponentWindow
 };
