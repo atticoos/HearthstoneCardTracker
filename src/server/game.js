@@ -23,7 +23,7 @@ Game.setRankedMode = function () {
 };
 
 Game.opponentCardDiscovered = function (cardId) {
-  var card = Cards.getCardById(card);
+  var card = Cards.getCardById(cardId);
   opponentCards.push(card);
   Server.publish('/opponent', {cards: opponentCards});
   console.log('opponent card discovered', card);
