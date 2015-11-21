@@ -3,7 +3,7 @@ describe('Logs: Bob', function () {
       sinon = require('sinon'),
       sinonChai = require('sinon-chai'),
       Game = require('../../../src/game'),
-      BobHandler = require('../../../src/handlers/bob'),
+      BobHandler = require('../../../src/log-reader/handlers/bob'),
       bobHandler,
       expect,
       assert;

@@ -3,7 +3,7 @@ describe('Logs: Power', function () {
       sinon = require('sinon'),
       sinonChai = require('sinon-chai'),
       Game = require('../../../src/game'),
-      PowerHandler = require('../../../src/handlers/power'),
+      PowerHandler = require('../../../src/log-reader/handlers/power'),
       powerHandler,
       expect,
       assert;

@@ -3,7 +3,7 @@ describe('Logs: Asset', function () {
       sinon = require('sinon'),
       sinonChai = require('sinon-chai'),
       Game = require('../../../src/game'),
-      AssetHandler = require('../../../src/handlers/asset'),
+      AssetHandler = require('../../../src/log-reader/handlers/asset'),
       assetHandler,
       expect,
       assert;

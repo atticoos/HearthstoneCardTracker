@@ -1,1 +1,2 @@
-var Events = require('./events');
+var Events = require('./log-reader/events');
+Events.start();
