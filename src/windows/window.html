@@ -8,5 +8,13 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+
+    <script type="text/javascript" src="http://localhost:8085/client.js"></script>
+    <script type="text/javascript">
+    var f = new module.exports.Client('http://localhost:8085');
+    f.subscribe('/test', function (response) {
+      console.log('response', response);
+    });
+    </script>
   </body>
 </html>

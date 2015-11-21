@@ -1,7 +1,7 @@
 var electron = require('electron');
 var app = electron.app;
-var Events = require('./server/events');
 var WindowManager = require('./server/window-manager');
+var Server = require('./server/server');
 
 require('crash-reporter').start();
 
@@ -12,6 +12,6 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function () {
-  Events.start();
+  Server.start();
   WindowManager.createWindows();
 });

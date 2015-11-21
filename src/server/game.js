@@ -1,5 +1,12 @@
 var Cards = require('./cards');
 var Game = {};
+var GAME_STATE = {
+  PLAYING: 'playing',
+  IDLE: 'idle'
+};
+var gameState = GAME_STATE.IDLE;
+var playerCards = [];
+var opponentCards = [];
 
 Game.setPlayingState = function () {
   console.log('GAME PLAYING');

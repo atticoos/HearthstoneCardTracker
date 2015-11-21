@@ -5,11 +5,11 @@ var opponentWindow;
 module.exports = {
   createWindows: function () {
     playerWindow = new BrowserWindow({
-      width: 200,
+      width: 400,
       height: 500
     });
     opponentWindow = new BrowserWindow({
-      width: 200,
+      width: 400,
       height: 500
     });
 
@@ -23,6 +23,9 @@ module.exports = {
 
     playerWindow.loadUrl('file://' + __dirname + '/../windows/window.html');
     opponentWindow.loadUrl('file://' + __dirname + '/../windows/window.html');
+
+    playerWindow.webContents.openDevTools();
+    opponentWindow.webContents.openDevTools();
   },
   playerWindow: playerWindow,
   opponentWindow: opponentWindow
