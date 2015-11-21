@@ -26,7 +26,11 @@ gulp.task('react', function () {
     .transform(reactify)
     .bundle()
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe(notify({
+      title: 'React',
+      message: 'Bundle complete'
+    }));
 });
 
 gulp.task('less', function () {
