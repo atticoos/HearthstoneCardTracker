@@ -13,7 +13,7 @@ function PowerHandler () {
     },
 
     {
-      pattern: /ACTION_START.*Entity=.*id=(\d+).*cardId=(\w+).*player=2.*BlockType=POWER.*Target=.*id=(\d+).*cardId=(\w+).*player=1.*/i,
+      pattern: /ACTION_START.*Entity=.*id=(\d+).*cardId=(\w+).*player=2.*BlockType=POWER.*Target=.*id=(\d+).*cardId=(\w+).*/i,
       handler: this.onOpponentAction
     }
   ];

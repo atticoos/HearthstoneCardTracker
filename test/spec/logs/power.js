@@ -31,6 +31,9 @@ describe('Logs: Power', function () {
     it ('should detect a card action by the opponent', function () {
       powerHandler.handle('2015-11-21 01:47:14.003: [Power] PowerTaskList.DebugPrintPower() - ACTION_START Entity=[name=Holy Smite id=57 zone=PLAY zonePos=0 cardId=CS1_130 player=2] BlockType=POWER Index=-1 Target=[name=Knife Juggler id=13 zone=PLAY zonePos=1 cardId=NEW1_019 player=1]');
       expect(Game.opponentCardDiscovered).to.have.been.calledWith('CS1_130');
+
+      powerHandler.handle("2015-11-21 04:53:58.290: [Power] PowerTaskList.DebugPrintPower() - ACTION_START Entity=[name=Shadow Word: Pain id=53 zone=PLAY zonePos=0 cardId=CS2_234 player=2] BlockType=POWER Index=-1 Target=[name=Bloodfen Raptor id=47 zone=PLAY zonePos=1 cardId=CS2_172 player=2]");
+      expect(Game.opponentCardDiscovered).to.have.been.calledWith('CS2_234');
     });
     afterEach(function () {
       Game.setPlayingState.restore();
