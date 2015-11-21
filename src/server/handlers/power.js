@@ -12,8 +12,9 @@ function PowerHandler () {
       handler: this.onGameStarted
     },
 
+    // enemy spell cast at a target
     {
-      pattern: /ACTION_START.*Entity=.*id=(\d+).*cardId=(\w+).*player=2.*BlockType=POWER.*Target=.*id=(\d+).*cardId=(\w+).*/i,
+      pattern: /ACTION_START.*Entity=.*id=(\d+).*cardId=(\w+).*player=2.*BlockType=POWER.*Target=[^\d].*/i,
       handler: this.onOpponentAction
     }
   ];
