@@ -5,12 +5,12 @@ var opponentWindow;
 module.exports = {
   createWindows: function () {
     playerWindow = new BrowserWindow({
-      width: 400,
-      height: 500
+      width: 600,
+      height: 800
     });
     opponentWindow = new BrowserWindow({
-      width: 400,
-      height: 500
+      width: 600,
+      height: 800
     });
 
     playerWindow.on('closed', function () {

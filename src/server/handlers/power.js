@@ -2,6 +2,8 @@ var Handler = require('./handler');
 var Game = require('../game');
 var _ = require('lodash');
 
+console.log('POEWR GAME', Game);
+
 function PowerHandler () {
   var filters = [
     // game started
