@@ -1,3 +1,4 @@
+var Cards = require('./cards');
 var Game = {};
 
 Game.setPlayingState = function () {
@@ -13,11 +14,11 @@ Game.setRankedMode = function () {
 };
 
 Game.opponentCardDiscovered = function (card) {
-  console.log('opponent card discovered', card);
+  console.log('opponent card discovered', Cards.getCardById(card));
 };
 
 Game.playerCardDiscovered = function (card) {
-  console.log('player card discovered', card);
+  console.log('player card discovered', Cards.getCardById(card));
 };
 
 Game.onCollection = function () {
