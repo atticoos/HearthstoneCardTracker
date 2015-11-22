@@ -1,13 +1,14 @@
-var BrowserWindow = require('browser-window');
-var electron = require('electron');
-var _ = require('lodash');
+'use strict';
+import BrowserWindow from 'browser-window';
+import electron from 'electron';
+
+const WINDOW_WIDTH = 200;
+const WINDOW_HEIGHT = 400;
 var playerWindow;
 var opponentWindow;
-var WINDOW_WIDTH = 200;
-var WINDOW_HEIGHT = 400;
 
 function createWindow (options) {
-  return new BrowserWindow(_.extend({
+  return new BrowserWindow(Object.assign({
     width: WINDOW_WIDTH,
     height: WINDOW_HEIGHT,
     frame: false,
@@ -18,7 +19,7 @@ function createWindow (options) {
 }
 
 module.exports = {
-  createWindows: function () {
+  createWindows: () => {
     var display = electron.screen.getPrimaryDisplay();
     playerWindow = createWindow({
       x: display.bounds.width - WINDOW_WIDTH,
@@ -29,24 +30,24 @@ module.exports = {
       y: 10
     });
 
-    playerWindow.on('closed', function () {
+    playerWindow.on('closed', () => {
       playerWindow = null;
     });
 
-    opponentWindow.on('closed', function () {
+    opponentWindow.on('closed', () => {
       opponentWindow = null
     });
 
-    playerWindow.loadUrl('file://' + __dirname + '/../windows/player-window.html');
-    opponentWindow.loadUrl('file://' + __dirname + '/../windows/opponent-window.html');
+    playerWindow.loadUrl('file://' + __dirname + '/windows/player-window.html');
+    opponentWindow.loadUrl('file://' + __dirname + '/windows/opponent-window.html');
 
     // playerWindow.webContents.openDevTools();
     // opponentWindow.webContents.openDevTools();
   },
-  updatePlayerWindowCards: function (cards) {
+  updatePlayerWindowCards: (cards) => {
     playerWindow.webContents.send('/player', {cards: cards});
   },
-  updateOpponentWindowCards: function (cards) {
+  updateOpponentWindowCards: (cards) => {
     opponentWindow.webContents.send('/opponent', {cards: cards});
   },
   playerWindow: playerWindow,

@@ -4,18 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron src/main.js",
+    "start": "electron src/index.js",
     "test": "gulp test"
   },
   "author": "Atticus White <contact@atticuswhite.com> (http://atticuswhite.com/)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "babel": "^6.1.18",
     "bluebird": "^3.0.5",
+    "hearthstone-log-adapter": "^0.1.0",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
-    "react": "^0.14.3",
-    "tail": "^0.4.0",
-    "through2": "^2.0.0"
+    "react": "^0.14.3"
   },
   "devDependencies": {
     "browserify": "^12.0.1",

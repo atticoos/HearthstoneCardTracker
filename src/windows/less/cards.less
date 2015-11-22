@@ -1,14 +1,37 @@
 .card {
   position: relative;
   margin: 20px 0;
+  height: 50px;
+  padding: 0 5px;
   text-align: center;
   background-size: 360px auto;
   background-position: -80px -110px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
 
   span {
-    display: block;
-    padding: 20px 10px;
-    background-color: rgba(0,0,0,0.4);
-    color: #fff;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+  }
+  .name {
+    flex: 5;
+  }
+  .count {
+    font-size: 18px;
   }
 }
