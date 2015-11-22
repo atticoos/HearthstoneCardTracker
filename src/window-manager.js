@@ -1,13 +1,14 @@
-var BrowserWindow = require('browser-window');
-var electron = require('electron');
-var _ = require('lodash');
+'use strict';
+import BrowserWindow from 'browser-window';
+import electron from 'electron';
+
+const WINDOW_WIDTH = 200;
+const WINDOW_HEIGHT = 400;
 var playerWindow;
 var opponentWindow;
-var WINDOW_WIDTH = 200;
-var WINDOW_HEIGHT = 400;
 
 function createWindow (options) {
-  return new BrowserWindow(_.extend({
+  return new BrowserWindow(Object.assign({
     width: WINDOW_WIDTH,
     height: WINDOW_HEIGHT,
     frame: false,
@@ -37,8 +38,8 @@ module.exports = {
       opponentWindow = null
     });
 
-    playerWindow.loadUrl('file://' + __dirname + '/../windows/player-window.html');
-    opponentWindow.loadUrl('file://' + __dirname + '/../windows/opponent-window.html');
+    playerWindow.loadUrl('file://' + __dirname + '/windows/player-window.html');
+    opponentWindow.loadUrl('file://' + __dirname + '/windows/opponent-window.html');
 
     // playerWindow.webContents.openDevTools();
     // opponentWindow.webContents.openDevTools();

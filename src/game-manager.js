@@ -1,5 +1,7 @@
-var Cards = require('./cards');
-var WindowManager = require('./window-manager');
+'use strict';
+import WindowManager from './window-manager';
+import HearthstoneLogAdapter from 'hearthstone-log-adapter';
+
 var GAME_STATE = {
   PLAYING: 'playing',
   IDLE: 'idle'
@@ -22,19 +24,19 @@ Game.setRankedMode = function () {
   console.log('ranked mode');
 };
 
-Game.opponentCardDiscovered = function (cardId) {
-  var card = Cards.getCardById(cardId);
-  opponentCards.push(card);
-  WindowManager.updateOpponentWindowCards(opponentCards);
-  console.log('opponent card discovered', card);
-};
-
-Game.playerCardDiscovered = function (cardId) {
-  var card = Cards.getCardById(cardId);
-  playerCards.push(card);
-  WindowManager.updatePlayerWindowCards(playerCards);
-  console.log('player card discovered', card);
-};
+// Game.opponentCardDiscovered = function (cardId) {
+//   var card = Cards.getCardById(cardId);
+//   opponentCards.push(card);
+//   WindowManager.updateOpponentWindowCards(opponentCards);
+//   console.log('opponent card discovered', card);
+// };
+//
+// Game.playerCardDiscovered = function (cardId) {
+//   var card = Cards.getCardById(cardId);
+//   playerCards.push(card);
+//   WindowManager.updatePlayerWindowCards(playerCards);
+//   console.log('player card discovered', card);
+// };
 
 Game.onCollection = function () {
   console.log('on game collection screen');
