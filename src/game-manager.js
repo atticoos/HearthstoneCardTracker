@@ -24,14 +24,14 @@ Game.gameEnded = () => {
 };
 
 Game.opponentCardDiscovered = (card) => {
-  card = Object.assign({}, card);
+  // card = Object.assign({}, card);
   console.log('opponent card discovered', card);
   opponentCards.push(card);
   WindowManager.updateOpponentWindowCards(opponentCards);
 };
 
 Game.playerCardDiscovered = (card) => {
-  card = Object.assign({}, card);
+  // card = Object.assign({}, card);
   console.log('player card discovered', card);
   playerCards.push(card);
   WindowManager.updatePlayerWindowCards(playerCards);

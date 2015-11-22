@@ -12,6 +12,7 @@
   "dependencies": {
     "babel": "^6.1.18",
     "bluebird": "^3.0.5",
+    "electron-compile": "^1.0.1",
     "hearthstone-log-adapter": "^0.1.0",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "electron-compilers": "^1.0.1",
     "electron-prebuilt": "^0.35.1",
     "gulp": "^3.9.0",
     "gulp-jscs": "^3.0.2",
