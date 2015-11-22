@@ -5,47 +5,8 @@ var Card = require('./card.jsx');
 
 var Cards = React.createClass({
   getInitialState: function () {
-    // return {
-    //   cards: []
-    // };
     return {
-      cards: [{ id: 'CS2_188',
-      name: 'Abusive Sergeant',
-      type: 'Minion',
-      faction: 'Alliance',
-      rarity: 'Common',
-      cost: 1,
-      attack: 2,
-      health: 1,
-      text: '<b>Battlecry:</b> Give a minion +2 Attack this turn.',
-      flavor: 'ADD ME TO YOUR DECK, MAGGOT!',
-      artist: 'Luca Zontini',
-      collectible: true,
-      mechanics: [ 'Battlecry' ] },{ id: 'CS2_188',
-      name: 'Abusive Sergeant',
-      type: 'Minion',
-      faction: 'Alliance',
-      rarity: 'Common',
-      cost: 1,
-      attack: 2,
-      health: 1,
-      text: '<b>Battlecry:</b> Give a minion +2 Attack this turn.',
-      flavor: 'ADD ME TO YOUR DECK, MAGGOT!',
-      artist: 'Luca Zontini',
-      collectible: true,
-      mechanics: [ 'Battlecry' ] },{ id: 'CS2_187',
-      name: 'Abusive Sergeant',
-      type: 'Minion',
-      faction: 'Alliance',
-      rarity: 'Common',
-      cost: 1,
-      attack: 2,
-      health: 1,
-      text: '<b>Battlecry:</b> Give a minion +2 Attack this turn.',
-      flavor: 'ADD ME TO YOUR DECK, MAGGOT!',
-      artist: 'Luca Zontini',
-      collectible: true,
-      mechanics: [ 'Battlecry' ] }]
+      cards: []
     };
   },
   componentDidMount: function () {
@@ -85,5 +46,43 @@ var Cards = React.createClass({
     );
   }
 });
+
+var MOCK_CARDS =[{ id: 'CS2_188',
+name: 'Abusive Sergeant',
+type: 'Minion',
+faction: 'Alliance',
+rarity: 'Common',
+cost: 1,
+attack: 2,
+health: 1,
+text: '<b>Battlecry:</b> Give a minion +2 Attack this turn.',
+flavor: 'ADD ME TO YOUR DECK, MAGGOT!',
+artist: 'Luca Zontini',
+collectible: true,
+mechanics: [ 'Battlecry' ] },{ id: 'CS2_188',
+name: 'Abusive Sergeant',
+type: 'Minion',
+faction: 'Alliance',
+rarity: 'Common',
+cost: 1,
+attack: 2,
+health: 1,
+text: '<b>Battlecry:</b> Give a minion +2 Attack this turn.',
+flavor: 'ADD ME TO YOUR DECK, MAGGOT!',
+artist: 'Luca Zontini',
+collectible: true,
+mechanics: [ 'Battlecry' ] },{ id: 'CS2_187',
+name: 'Abusive Sergeant',
+type: 'Minion',
+faction: 'Alliance',
+rarity: 'Common',
+cost: 1,
+attack: 2,
+health: 1,
+text: '<b>Battlecry:</b> Give a minion +2 Attack this turn.',
+flavor: 'ADD ME TO YOUR DECK, MAGGOT!',
+artist: 'Luca Zontini',
+collectible: true,
+mechanics: [ 'Battlecry' ] }];
 
 module.exports = Cards;
