@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     less = require('gulp-less'),
     browserify = require('browserify'),
+    babelify = require('babelify'),
     reactify = require('reactify'),
     source = require('vinyl-source-stream');
 
@@ -23,7 +24,8 @@ gulp.task('test', function () {
 
 gulp.task('react', function () {
   browserify('./src/windows/src/app.jsx')
-    .transform(reactify)
+    .transform(babelify, {presets: ['react']})
+    // .transform(reactify)
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('dist'))
