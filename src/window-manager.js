@@ -19,7 +19,7 @@ function createWindow (options) {
 }
 
 module.exports = {
-  createWindows: function () {
+  createWindows: () => {
     var display = electron.screen.getPrimaryDisplay();
     playerWindow = createWindow({
       x: display.bounds.width - WINDOW_WIDTH,
@@ -30,11 +30,11 @@ module.exports = {
       y: 10
     });
 
-    playerWindow.on('closed', function () {
+    playerWindow.on('closed', () => {
       playerWindow = null;
     });
 
-    opponentWindow.on('closed', function () {
+    opponentWindow.on('closed', () => {
       opponentWindow = null
     });
 
@@ -44,10 +44,10 @@ module.exports = {
     // playerWindow.webContents.openDevTools();
     // opponentWindow.webContents.openDevTools();
   },
-  updatePlayerWindowCards: function (cards) {
+  updatePlayerWindowCards: (cards) => {
     playerWindow.webContents.send('/player', {cards: cards});
   },
-  updateOpponentWindowCards: function (cards) {
+  updateOpponentWindowCards: (cards) => {
     opponentWindow.webContents.send('/opponent', {cards: cards});
   },
   playerWindow: playerWindow,

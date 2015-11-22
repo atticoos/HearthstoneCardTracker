@@ -2,7 +2,7 @@
 import WindowManager from './window-manager';
 import HearthstoneLogAdapter from 'hearthstone-log-adapter';
 
-var GAME_STATE = {
+const GAME_STATE = {
   PLAYING: 'playing',
   IDLE: 'idle'
 };
@@ -12,58 +12,24 @@ var playerCards = [];
 var opponentCards = [];
 
 
-Game.setPlayingState = function () {
+Game.setPlayingState = () => {
   console.log('GAME PLAYING');
 };
 
-Game.setNotPlayingState = function () {
+Game.setNotPlayingState = () => {
   console.log('GAME STOPPED PLAYING');
 };
 
-Game.setRankedMode = function () {
-  console.log('ranked mode');
+Game.opponentCardDiscovered = (card) => {
+  opponentCards.push(card);
+  WindowManager.updateOpponentWindowCards(opponentCards);
+  console.log('opponent card discovered', card);
 };
 
-// Game.opponentCardDiscovered = function (cardId) {
-//   var card = Cards.getCardById(cardId);
-//   opponentCards.push(card);
-//   WindowManager.updateOpponentWindowCards(opponentCards);
-//   console.log('opponent card discovered', card);
-// };
-//
-// Game.playerCardDiscovered = function (cardId) {
-//   var card = Cards.getCardById(cardId);
-//   playerCards.push(card);
-//   WindowManager.updatePlayerWindowCards(playerCards);
-//   console.log('player card discovered', card);
-// };
-
-Game.onCollection = function () {
-  console.log('on game collection screen');
-};
-
-Game.onFriendChallenge = function () {
-  console.log('on friend challenge');
-};
-
-Game.onPracticeScreen = function () {
-  console.log('on practice screen');
-};
-
-Game.onCasualScreen = function () {
-  console.log('on play mode screen');
-};
-
-Game.onFriendlyScreen = function () {
-  console.log('on friendly screen');
-};
-
-Game.onArenaScreen = function () {
-  console.log('on arena screen');
-};
-
-Game.onGameLoaded = function () {
-  console.log('on game loaded');
+Game.playerCardDiscovered = (card) => {
+  playerCards.push(card);
+  WindowManager.updatePlayerWindowCards(playerCards);
+  console.log('player card discovered', card);
 };
 
 module.exports = Game;
