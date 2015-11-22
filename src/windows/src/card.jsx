@@ -12,9 +12,19 @@ var Card = React.createClass({
   render: function () {
     return (
       <div className="card" style={{backgroundImage: this.getBackgroundImage()}}>
-        <span>{this.props.card.name}</span>
+        {this.renderConditionalCount()}
+        <span className="name">{this.props.card.name}</span>
       </div>
     );
+  },
+  renderConditionalCount: function () {
+    if (this.props.count > 1) {
+      return (
+        <span className="count">{this.props.count}</span>
+      );
+    } else {
+      return null;
+    }
   }
 });
 

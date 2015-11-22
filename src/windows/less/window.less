@@ -1,10 +1,16 @@
 html,body {
   background: transparent;
   -webkit-app-region: drag;
-  font-size: 18px;
+  font-size: 14px;
   color: #fff;
+  font-family: Helvetica;
+  height: 100%;
 }
-
 html {
   background-color: rgba(0,0,0,0.2);
+  -webkit-app-region: drag;
+  &:hover {
+    background-color: rgba(0,0,0,0.5);
+    cursor: move;
+  }
 }
