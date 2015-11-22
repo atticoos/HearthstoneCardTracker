@@ -15,4 +15,5 @@ app.on('window-all-closed', () => {
 
 app.on('ready', () => {
   WindowManager.createWindows();
+  GameManager.start();
 });
