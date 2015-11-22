@@ -1,10 +1,26 @@
-var React = require('react');
-var Game = require('./game');
-var _ = require('lodash');
+'use strict';
+import React from 'react';
+import ReactDom from 'react-dom';
+import Cards from './cards';
 
-var Cards = require('./cards.jsx');
+// class Foo extends React.Component {
+//   render() {
+//     return (
+//       <h2>Bar</h2>
+//     );
+//   }
+// }
+//
+// if (document.getElementById('player-root')) {
+//   ReactDom.render(<Foo />, document.getElementById('player-root'));
+// } else {
+//   ReactDom.render(<Foo />, document.getElementById('opponent-root'));
+// }
+
+// // import Cards from './cards';
+//
 if (document.getElementById('player-root')) {
-  React.render(<Cards type="player" />, document.getElementById('player-root'));
+  ReactDom.render(<Cards type="player" />, document.getElementById('player-root'));
 } else {
-  React.render(<Cards type="opponent" />, document.getElementById('opponent-root'));
+  ReactDom.render(<Cards type="opponent" />, document.getElementById('opponent-root'));
 }
