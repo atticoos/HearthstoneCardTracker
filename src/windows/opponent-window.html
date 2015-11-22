@@ -6,7 +6,15 @@
   </head>
   <body>
     Opponent Cards
-    <div id="opponent-root"></div>
-    <script type="text/javascript">require('./src/index.js');</script>
+    <div id="root"></div>
+    <script type="text/javascript">
+    import React from 'react';
+    import ReactDom from 'react-dom';
+    import Cards from './src/cards';
+    ReactDom.render(
+      <Cards type="opponent" />,
+      document.getElementById('root')
+    );
+    </script>
   </body>
 </html>

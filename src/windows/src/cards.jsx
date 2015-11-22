@@ -7,14 +7,14 @@ class Cards extends React.Component {
   constructor() {
     super();
     this.state = {
-      cards: MOCK_CARDS
+      cards: []
     };
   }
   componentDidMount() {
-    Game.addListener(this.props.type, this.onCard);
+    Game.addListener(this.props.type, this.onCard.bind(this));
   }
   componentWillUnmount() {
-    Game.removeListener(this.props.type, this.onCard);
+    Game.removeListener(this.props.type, this.onCard.bind(this));
   }
   onCard(cards) {
     this.setState({cards: cards});
