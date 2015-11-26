@@ -11,7 +11,8 @@ class Cards extends React.Component {
     };
   }
   componentDidMount() {
-    Game.addListener(this.props.type, this.onCard.bind(this));
+    Game.addListener('game-ended', this.reset);
+    Game.addListener(this.props.type, this.onCard);
     Game.addListener('playerDeck', (deck) => {
       console.log('deck selected', deck);
       this.onCard(deck.cards);
@@ -20,8 +21,12 @@ class Cards extends React.Component {
   componentWillUnmount() {
     Game.removeListener(this.props.type, this.onCard.bind(this));
   }
-  onCard(cards) {
+  onCard = (cards) => {
     this.setState({cards: cards});
+  }
+  reset = () => {
+    this.state.cards = [];
+    this.setState(this.state);
   }
   render() {
     if (this.state.cards.length === 0) {

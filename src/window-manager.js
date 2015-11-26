@@ -72,6 +72,11 @@ windowManager.openDeckManager = () => {
     // deckManagerWindow.webContents.openDevTools();
   }
 };
+windowManager.sendToBothWindows = (key, value) => {
+  [playerWindow, opponentWindow].forEach(browserWindow => {
+    browserWindow.send(key, value);
+  });
+};
 windowManager.updatePlayerDeck = (deck) => {
   playerWindow.webContents.send('/deck', {deck: deck});
 }

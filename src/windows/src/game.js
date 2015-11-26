@@ -8,6 +8,9 @@ class Game extends EventEmitter {
     ipcRenderer.on('/player', this.onPlayerCards.bind(this));
     ipcRenderer.on('/opponent', this.onOpponentCards.bind(this));
     ipcRenderer.on('/deck', this.onDeckSelected.bind(this));
+    ipcRenderer.on('game-ended', () => {
+      this.emit('game-ended');
+    });
   }
   onPlayerCards (evt, response) {
     this.emit('player', response.cards);

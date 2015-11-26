@@ -28,6 +28,7 @@ class PlayerCards extends React.Component {
     // @TODO make these unbindable
     Game.on('player', this.onCardDrawn);
     Game.on('playerDeck', this.onDeckSelected);
+    Game.on('game-ended', this.reset);
   }
   componentWillUnmount() {
     Game.removeListener('player', this.onCardDrawn);
@@ -39,6 +40,10 @@ class PlayerCards extends React.Component {
   }
   onDeckSelected = (deck) => {
     this.state.deck = deck;
+    this.setState(this.state);
+  }
+  reset = () => {
+    this.state.cardsDrawn = [];
     this.setState(this.state);
   }
   openDeckManager = () => {

@@ -22,6 +22,7 @@ Game.gameEnded = () => {
   console.log('GAME STOPPED PLAYING');
   playerCards = [];
   opponentCards = [];
+  WindowManager.sendToBothWindows('game-ended');
 };
 
 Game.opponentCardDiscovered = (card) => {
