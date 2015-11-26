@@ -69,7 +69,7 @@ windowManager.openDeckManager = () => {
   } else {
     deckManagerWindow = createDeckmanagerWindow();
     deckManagerWindow.loadUrl('file://' + __dirname + '/windows/deck-manager-window.html');
-    deckManagerWindow.webContents.openDevTools();
+    // deckManagerWindow.webContents.openDevTools();
   }
 };
 windowManager.updatePlayerDeck = (deck) => {
