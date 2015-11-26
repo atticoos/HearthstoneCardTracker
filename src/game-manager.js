@@ -48,7 +48,8 @@ logAdapter.addListener(Events.GAME_STARTED, Game.gameStarted);
 logAdapter.addListener(Events.GAME_ENDED, Game.gameEnded);
 
 ipcMain.on('deck-selected', (evt, deck) => {
-  WindowManager.updatePlayerDeck(deck);
+  console.log('cards', deck.cards);
+  WindowManager.updatePlayerDeck(Object.assign({}, deck));
 });
 
 module.exports = Game;

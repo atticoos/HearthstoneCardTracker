@@ -11,12 +11,24 @@ class Decks extends React.Component {
     };
   }
   componentDidMount() {
+    var testCard = {
+      foo: 'bar',
+      id: 'CS2_084',
+      name: 'Atticus'
+    };
+
+    var cards = [testCard, testCard, testCard];
+    IPC.selectDeck({
+      cards: cards
+    });
+
     Hearthstats.getDecks()
     .then(decks => this.setState({decks: decks}));
   }
   selectDeck(selectedDeck) {
     console.log('selecting deck', selectedDeck);
     Hearthstats.getDeck(selectedDeck.id).then(deck => {
+      console.log('selected deck', deck);
       IPC.selectDeck(deck);
     });
   }

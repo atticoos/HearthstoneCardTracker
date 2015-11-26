@@ -48,12 +48,21 @@ function getDeck(id) {
   .then(response => response.json())
   .then(response => response.data)
   .then(deck => {
-    var promises = deck.cardstring.split(',').map(card => {
-      var cardId = card.split('_');
-      cardId = cardId[0];
-      return getCard(cardId);
+    var promises = deck.cardstring.split(',').map(cardString => {
+      var [cardId, quantity] = cardString.split('_');
+      return getCard(cardId).then(card => {
+        var cards = [];
+        while (quantity > 0) {
+          cards.push(Object.assign({}, card));
+          quantity--;
+        }
+        return cards;
+      });
     });
     return Promise.all(promises).then(cards => {
+      cards = cards.reduce((flat, subset) => {
+        return flat.concat(subset);
+      }, []);
       deck.cards = cards;
       return deck;
     });
