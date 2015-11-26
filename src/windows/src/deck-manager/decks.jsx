@@ -34,7 +34,7 @@ class Decks extends React.Component {
       )
     });
     return (
-      <div>
+      <div className="decks">
         <h2>Decks:</h2>
         {decks}
       </div>
