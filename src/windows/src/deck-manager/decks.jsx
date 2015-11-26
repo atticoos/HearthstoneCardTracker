@@ -50,9 +50,9 @@ class Decks extends React.Component {
           <div className="title">
             <div className="hero warlock"></div>
             <h3>{deck.name} (W{deck.user_num_wins} - L{deck.user_num_losses})</h3>
+            <Link to={`/decks/${deck.id}`} className="button">View</Link>
+            <a className="button" onClick={() => this.selectDeck(deck)}>Select</a>
           </div>
-          <Link to={`/decks/${deck.id}`} className="button">View</Link>
-          <a className="button" onClick={() => this.selectDeck(deck)}>Select</a>
         </div>
       )
     });
