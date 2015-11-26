@@ -13,7 +13,6 @@ class Decks extends React.Component {
   componentDidMount() {
     Hearthstats.getDecks()
     .then(decks => {
-      console.log('decks', decks);
       return decks;
     })
     .then(decks => this.setState({decks: decks}));
