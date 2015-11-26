@@ -69,9 +69,12 @@ windowManager.openDeckManager = () => {
   } else {
     deckManagerWindow = createDeckmanagerWindow();
     deckManagerWindow.loadUrl('file://' + __dirname + '/windows/deck-manager-window.html');
+    deckManagerWindow.webContents.openDevTools();
   }
 };
-
+windowManager.updatePlayerDeck = (deck) => {
+  playerWindow.webContents.send('/deck', {deck: deck});
+}
 windowManager.updatePlayerWindowCards = (cards) => {
   playerWindow.webContents.send('/player', {cards: cards});
 };

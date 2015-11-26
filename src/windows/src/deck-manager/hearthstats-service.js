@@ -1,4 +1,5 @@
 import Promise from 'bluebird';
+import Cards from 'hearthstone-log-adapter/src/cards';
 
 const BASE_URI = 'https://hearthstats.net/api/v3';
 const AUTH_STORAGE_KEY = 'deckmanager:token'
@@ -36,7 +37,10 @@ function getCard (id) {
   console.log('fetching card', id);
   return fetch(BASE_URI + '/cards/' + id + '?auth_token=' + authToken)
   .then(response => response.json())
-  .then(response => response.data);
+  .then(response => response.data)
+  .then(card => {
+    return Cards.getById(card.blizz_id);
+  });
 }
 
 function getDeck(id) {

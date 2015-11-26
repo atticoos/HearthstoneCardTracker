@@ -14,14 +14,17 @@ class Deck extends React.Component {
   componentDidMount() {
     var deckId = this.props.params.id;
     Hearthstats.getDeck(deckId).then(deck => {
-      deck.cards = deck.cards.map(card => {
-        return Cards.getById(card.blizz_id);
-      });
-      console.log('deck', deck);
       this.setState({deck: deck});
     });
   }
   render() {
+    return (
+      <div className="container deck">
+        {this.renderByState()}
+      </div>
+    );
+  }
+  renderByState() {
     if (!this.state.deck) {
       return (
         <h2>Loading your deck..</h2>

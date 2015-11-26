@@ -1,6 +1,7 @@
 import React from 'react';
 import Hearthstats from './hearthstats-service';
 import {Link} from 'react-router';
+import IPC from './ipc';
 
 class Decks extends React.Component {
   constructor() {
@@ -13,7 +14,20 @@ class Decks extends React.Component {
     Hearthstats.getDecks()
     .then(decks => this.setState({decks: decks}));
   }
+  selectDeck(selectedDeck) {
+    console.log('selecting deck', selectedDeck);
+    Hearthstats.getDeck(selectedDeck.id).then(deck => {
+      IPC.selectDeck(deck);
+    });
+  }
   render() {
+    return (
+      <div className="container decks">
+        {this.renderByState()}
+      </div>
+    )
+  }
+  renderByState() {
     if (this.state.decks === null) {
       return (
         <h2>Loading..</h2>
@@ -30,13 +44,14 @@ class Decks extends React.Component {
     var decks = this.state.decks.map(deck => {
       return (
         <div key={deck.id}>
-          <h3>{deck.name}</h3>
+          <h3>{deck.name} (W{deck.user_num_wins} - L{deck.user_num_losses})</h3>
           <Link to={`/decks/${deck.id}`}>View</Link>
+          <button onClick={() => this.selectDeck(deck)}>Select</button>
         </div>
       )
     });
     return (
-      <div className="decks">
+      <div>
         <h2>Decks:</h2>
         {decks}
       </div>

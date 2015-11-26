@@ -19,7 +19,7 @@ class HearthstatsLogin extends React.Component {
   }
   render () {
     return (
-      <div className="login">
+      <div className="container fixed login">
         <h2>Hearthstats Login</h2>
         <div className="field-control">
           <input type="email"

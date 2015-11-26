@@ -1,6 +1,7 @@
 'use strict';
 import WindowManager from './window-manager';
 import HearthstoneLogAdapter from 'hearthstone-log-adapter';
+import {ipcMain} from 'electron';
 const Events = HearthstoneLogAdapter.Events;
 const LOG_DIRECTORY = '/Users/ajwhite/Library/Preferences/Blizzard/Hearthstone/Logs';
 const GAME_STATE = {
@@ -45,5 +46,9 @@ logAdapter.addListener(Events.OPPONENT_CARD, Game.opponentCardDiscovered);
 logAdapter.addListener(Events.PLAYER_CARD, Game.playerCardDiscovered);
 logAdapter.addListener(Events.GAME_STARTED, Game.gameStarted);
 logAdapter.addListener(Events.GAME_ENDED, Game.gameEnded);
+
+ipcMain.on('deck-selected', (evt, deck) => {
+  WindowManager.updatePlayerDeck(deck);
+});
 
 module.exports = Game;
