@@ -12,6 +12,10 @@ class Cards extends React.Component {
   }
   componentDidMount() {
     Game.addListener(this.props.type, this.onCard.bind(this));
+    Game.addListener('playerDeck', (deck) => {
+      console.log('deck selected', deck);
+      this.onCard(deck.cards);
+    });
   }
   componentWillUnmount() {
     Game.removeListener(this.props.type, this.onCard.bind(this));

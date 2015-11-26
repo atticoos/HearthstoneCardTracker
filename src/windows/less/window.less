@@ -1,17 +1,21 @@
-html,body {
-  background: transparent;
-  -webkit-app-region: drag;
-  font-size: 14px;
-  color: #fff;
+html, body {
   font-family: Helvetica;
   height: 100%;
   padding: 0;
   margin: 0;
 }
+
+html.card-window,
+.html.card-window ,body {
+  background: transparent;
+  -webkit-app-region: drag;
+  font-size: 14px;
+  color: #fff;
+}
 * {
   display: border-box;
 }
-html {
+html.card-window {
   background-color: rgba(0,0,0,0.2);
   -webkit-app-region: drag;
   &:hover {
