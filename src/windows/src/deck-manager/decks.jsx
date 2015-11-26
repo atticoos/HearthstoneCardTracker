@@ -12,6 +12,10 @@ class Decks extends React.Component {
   }
   componentDidMount() {
     Hearthstats.getDecks()
+    .then(decks => {
+      console.log('decks', decks);
+      return decks;
+    })
     .then(decks => this.setState({decks: decks}));
   }
   selectDeck(selectedDeck) {
@@ -42,10 +46,13 @@ class Decks extends React.Component {
   renderDecks() {
     var decks = this.state.decks.map(deck => {
       return (
-        <div key={deck.id}>
-          <h3>{deck.name} (W{deck.user_num_wins} - L{deck.user_num_losses})</h3>
-          <Link to={`/decks/${deck.id}`}>View</Link>
-          <button onClick={() => this.selectDeck(deck)}>Select</button>
+        <div className="deck" key={deck.id}>
+          <div className="title">
+            <div className="hero warlock"></div>
+            <h3>{deck.name} (W{deck.user_num_wins} - L{deck.user_num_losses})</h3>
+          </div>
+          <Link to={`/decks/${deck.id}`} className="button">View</Link>
+          <a className="button" onClick={() => this.selectDeck(deck)}>Select</a>
         </div>
       )
     });

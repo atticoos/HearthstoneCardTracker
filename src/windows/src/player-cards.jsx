@@ -104,24 +104,11 @@ class PlayerCards extends React.Component {
   }
   renderSelectDeck() {
     return (
-      <button onClick={this.openDeckManager}>Select a Deck</button>
+      <a className="button" onClick={this.openDeckManager}>Select a Deck</a>
     );
   }
   renderCards() {
-    // var rows = this.state.deck.cards.reduce((collection, current) => {
-    //   var groupIndex = collection.findIndex((group) => {
-    //     return group[0].id === current.id;
-    //   });
-    //   if (groupIndex > -1) {
-    //     collection[groupIndex].push(current);
-    //   } else {
-    //     collection.push([current]);
-    //   }
-    //   return collection;
-    // }, [])
-
     var rows = this.getCards().map(cardGroup => {
-      console.log('cardGroup', cardGroup);
       return (
         <Card
               drawn={this.getNumberOfDrawsForCard(cardGroup[0])}
