@@ -7,7 +7,7 @@ class DeckManagerApp extends React.Component {
   constructor () {
     super();
     this.state = {
-      loggedIn: false
+      loggedIn: Hearthstats.isLoggedIn()
     };
   }
   onLoggedIn(token) {

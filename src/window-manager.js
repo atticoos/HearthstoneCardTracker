@@ -26,7 +26,7 @@ function createWindow (options) {
 
 function createDeckmanagerWindow (options) {
   return new BrowserWindow(Object.assign({
-    width: 500,
+    width: 800,
     height: 700
   }, options || {}));
 }
