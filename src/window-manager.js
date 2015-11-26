@@ -65,10 +65,11 @@ windowManager.createWindows = () => {
 
 windowManager.openDeckManager = () => {
   if (deckManagerWindow) {
-    return;
+    deckManagerWindow.focus();
+  } else {
+    deckManagerWindow = createDeckmanagerWindow();
+    deckManagerWindow.loadUrl('file://' + __dirname + '/windows/deck-manager-window.html');
   }
-  deckManagerWindow = createDeckmanagerWindow();
-  deckManagerWindow.loadUrl('file://' + __dirname + '/windows/deck-manager-window.html');
 };
 
 windowManager.updatePlayerWindowCards = (cards) => {
