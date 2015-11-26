@@ -18,16 +18,16 @@ class HearthstatsLogin extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className="login">
         <h2>Hearthstats Login</h2>
-        <div>
+        <div className="field-control">
           <input type="email"
                  value={this.state.email}
                  onChange={(evt) => {
                    this.setState({email: evt.target.value, password: this.state.password})
                  }}/>
         </div>
-        <div>
+        <div className="field-control">
           <input type="password"
                  value={this.state.password}
                  onChange={(evt) => {

@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
+    less = require('gulp-less'),
     mocha = require('gulp-mocha');
 
 gulp.task('test', function () {
@@ -15,6 +16,21 @@ gulp.task('test', function () {
     }
   }))
   .pipe(mocha({reporter: 'spec', growl: true}));
+});
+
+gulp.task('less', function () {
+  gulp.src('src/windows/less/main.less')
+  .pipe(less())
+  .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('assets', function () {
+  gulp.src('src/windows/assets/**/*')
+  .pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('windows', ['less', 'assets'], function () {
+  gulp.watch('src/windows/less/**/*.less', ['less', 'assets']);
 });
 
 gulp.task('testing', ['test'], function () {
