@@ -1,5 +1,6 @@
 import React from 'react';
 import Hearthstats from './hearthstats-service';
+import {Link} from 'react-router';
 
 class Decks extends React.Component {
   constructor() {
@@ -30,6 +31,7 @@ class Decks extends React.Component {
       return (
         <div key={deck.id}>
           <h3>{deck.name}</h3>
+          <Link to={`/decks/${deck.id}`}>View</Link>
         </div>
       )
     });

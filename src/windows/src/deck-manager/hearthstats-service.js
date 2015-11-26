@@ -32,6 +32,30 @@ function getDecks () {
   .then(response => response.data);
 }
 
+function getCard (id) {
+  console.log('fetching card', id);
+  return fetch(BASE_URI + '/cards/' + id + '?auth_token=' + authToken)
+  .then(response => response.json())
+  .then(response => response.data);
+}
+
+function getDeck(id) {
+  return fetch(BASE_URI + '/decks/' + id + '/?auth_token=' + authToken)
+  .then(response => response.json())
+  .then(response => response.data)
+  .then(deck => {
+    var promises = deck.cardstring.split(',').map(card => {
+      var cardId = card.split('_');
+      cardId = cardId[0];
+      return getCard(cardId);
+    });
+    return Promise.all(promises).then(cards => {
+      deck.cards = cards;
+      return deck;
+    });
+  });
+}
+
 function isLoggedIn () {
   return !!authToken;
 }
@@ -40,7 +64,8 @@ var service = {
   login: login,
   getDecks: getDecks,
   isLoggedIn: isLoggedIn,
-  authToken: authToken
+  authToken: authToken,
+  getDeck: getDeck
 };
 
 export default service;

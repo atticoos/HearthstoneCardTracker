@@ -14,7 +14,6 @@ class HearthstatsLogin extends React.Component {
     Hearthstats.login(this.state.email, this.state.password)
     .then(token => {
       history.replaceState(null, '/decks');
-      // this.props.onLogin(token)
     })
     .catch(error => console.log('login error', error));
   }
