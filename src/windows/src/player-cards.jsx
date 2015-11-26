@@ -115,11 +115,10 @@ class PlayerCards extends React.Component {
   renderCards() {
     var rows = this.getCards().map(cardGroup => {
       return (
-        <Card
-              drawn={this.getNumberOfDrawsForCard(cardGroup[0])}
-              card={cardGroup[0]}
-              count={cardGroup.length}
-              key={cardGroup[0].id} />
+        <Card key={cardGroup[0].id}
+          drawn={this.getNumberOfDrawsForCard(cardGroup[0])}
+          card={cardGroup[0]}
+          count={cardGroup.length} />
       );
     });
     return (
