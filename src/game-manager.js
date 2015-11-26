@@ -52,4 +52,8 @@ ipcMain.on('deck-selected', (evt, deck) => {
   WindowManager.updatePlayerDeck(Object.assign({}, deck));
 });
 
+ipcMain.on('open-deck-manager', () => {
+  WindowManager.openDeckManager();
+});
+
 module.exports = Game;

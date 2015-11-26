@@ -2,7 +2,7 @@
 <html class="card-window">
   <head>
     <title>Player Cards</title>
-    <link rel="stylesheet" type="text/css" href="less/main.less" />
+    <link rel="stylesheet" type="text/css" href="../../dist/main.css" />
   </head>
   <body>
     Your Cards
@@ -10,9 +10,9 @@
     <script type="text/javascript">
     import React from 'react';
     import ReactDom from 'react-dom';
-    import Cards from './src/cards';
+    import PlayerCards from './src/player-cards';
     ReactDom.render(
-      <Cards type="player" />,
+      <PlayerCards />,
       document.getElementById('root')
     );
     </script>

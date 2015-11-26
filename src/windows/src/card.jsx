@@ -11,9 +11,22 @@ class Card extends React.Component {
     ].join('');
   }
 
+  getClassName() {
+    var classNames = ['card'];
+    if (this.getCount() === 0) {
+      classNames.push('drawn');
+    }
+    return classNames.join(' ');
+  }
+
+  getCount() {
+    return this.props.count - this.props.drawn;
+  }
+
   render() {
     return (
-      <div className="card" style={{backgroundImage: this.getBackgroundImage()}}>
+      <div className={this.getClassName()}
+           style={{backgroundImage: this.getBackgroundImage()}}>
         {this.renderConditionalCount()}
         <span className="name">{this.props.card.name}</span>
       </div>
@@ -21,9 +34,9 @@ class Card extends React.Component {
   }
 
   renderConditionalCount() {
-    if (this.props.count > 1) {
+    if (this.getCount() > 1) {
       return (
-        <span className="count">{this.props.count}</span>
+        <span className="count">{this.getCount()}</span>
       );
     } else {
       return null;

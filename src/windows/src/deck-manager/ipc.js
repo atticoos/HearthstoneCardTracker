@@ -4,4 +4,8 @@ function selectDeck(deck) {
   ipcRenderer.send('deck-selected', deck);
 }
 
-export default {selectDeck};
+function openDeckManager() {
+  ipcRenderer.send('open-deck-manager');
+}
+
+export default {selectDeck, openDeckManager};
