@@ -1,5 +1,6 @@
 import React from 'react';
 import Hearthstats from './hearthstats-service';
+import history from './history';
 
 class HearthstatsLogin extends React.Component {
   constructor() {
@@ -12,7 +13,8 @@ class HearthstatsLogin extends React.Component {
   login() {
     Hearthstats.login(this.state.email, this.state.password)
     .then(token => {
-      this.props.onLogin(token)
+      history.replaceState(null, '/decks');
+      // this.props.onLogin(token)
     })
     .catch(error => console.log('login error', error));
   }

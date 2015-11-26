@@ -2,7 +2,7 @@ import React from 'react';
 import Login from './login';
 import Decks from './decks';
 import Hearthstats from './hearthstats-service';
-import {Router, Route, Link} from 'react-router';
+import {Router, Route, IndexRoute} from 'react-router';
 import history from './history';
 
 
@@ -25,7 +25,7 @@ class DeckManagerApp extends React.Component {
   render() {
     return (
       <Router history={history}>
-        <Route path="/" component={Login} />
+        <Route path="/Users/ajwhite/Development/Labs/hearthstone-tracker/src/windows/deck-manager-window.html" component={Login} />
         <Route path="/decks" component={Decks} />
       </Router>
     );
