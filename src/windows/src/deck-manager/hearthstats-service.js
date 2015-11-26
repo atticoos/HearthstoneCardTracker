@@ -4,6 +4,8 @@ import Cards from 'hearthstone-log-adapter/src/cards';
 const BASE_URI = 'https://hearthstats.net/api/v3';
 const AUTH_STORAGE_KEY = 'deckmanager:token'
 var authToken = localStorage.getItem(AUTH_STORAGE_KEY);
+var deckCache = {};
+var cardCache = {};
 
 function login (email, password) {
   return fetch(BASE_URI + '/users/sign_in', {
@@ -30,20 +32,35 @@ function login (email, password) {
 function getDecks () {
   return fetch(BASE_URI + '/decks?auth_token=' + authToken)
   .then(response => response.json())
-  .then(response => response.data);
+  .then(response => response.data)
+  .then(decks => {
+    // prepopulate the cache
+    decks.forEach(deck => getDeck(deck.id));
+    return decks;
+  });
 }
 
 function getCard (id) {
-  console.log('fetching card', id);
+  if (cardCache[id]) {
+    return new Promise((resolve, reject) => {
+      resolve(cardCache[id]);
+    });
+  }
   return fetch(BASE_URI + '/cards/' + id + '?auth_token=' + authToken)
   .then(response => response.json())
   .then(response => response.data)
   .then(card => {
+    cardCache[card.id] = card;
     return Cards.getById(card.blizz_id);
   });
 }
 
 function getDeck(id) {
+  if (deckCache[id]) {
+    return new Promise((resolve, reject) => {
+      resolve(deckCache[id]);
+    });
+  }
   return fetch(BASE_URI + '/decks/' + id + '/?auth_token=' + authToken)
   .then(response => response.json())
   .then(response => response.data)
@@ -64,6 +81,7 @@ function getDeck(id) {
         return flat.concat(subset);
       }, []);
       deck.cards = cards;
+      deckCache[deck.id] = deck;
       return deck;
     });
   });

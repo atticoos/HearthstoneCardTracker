@@ -33,13 +33,16 @@ function createDeckmanagerWindow (options) {
 
 windowManager.createWindows = () => {
   var display = electron.screen.getPrimaryDisplay();
+  console.log('display', display);
   playerWindow = createWindow({
     x: display.bounds.width - WINDOW_WIDTH,
-    y: 10
+    y: display.workArea.y,
+    height: display.workArea.height
   });
   opponentWindow = createWindow({
     x: 0,
-    y: 10
+    y: display.workArea.y,
+    height: display.workArea.height
   });
 
   playerWindow.on('closed', () => {
