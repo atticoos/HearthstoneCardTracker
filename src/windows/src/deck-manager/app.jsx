@@ -12,8 +12,7 @@ class DeckManagerApp extends React.Component {
   }
   onLoggedIn(token) {
     this.state.loggedIn = true;
-    this.setState(state);
-    console.log('got teh token', token);
+    this.setState(this.state);
   }
   render () {
     if (this.state.loggedIn) {
@@ -22,7 +21,7 @@ class DeckManagerApp extends React.Component {
       );
     } else {
       return (
-        <Login onLogin={this.onLoggedIn} />
+        <Login onLogin={token => this.onLoggedIn(token)} />
       );
     }
   }

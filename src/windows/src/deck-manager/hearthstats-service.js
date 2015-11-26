@@ -1,3 +1,5 @@
+import Promise from 'bluebird';
+
 const BASE_URI = 'https://hearthstats.net/api/v3';
 var authToken = null;
 
@@ -20,7 +22,9 @@ function login (email, password) {
 }
 
 function getDecks () {
-
+  return fetch(BASE_URI + '/decks?auth_token=' + authToken)
+  .then(response => response.json())
+  .then(response => response.data);
 }
 
 function isLoggedIn () {

@@ -1,6 +1,5 @@
 import React from 'react';
 import Hearthstats from './hearthstats-service';
-console.log('Y U NO EXIST', Hearthstats);
 
 class HearthstatsLogin extends React.Component {
   constructor() {
@@ -12,7 +11,9 @@ class HearthstatsLogin extends React.Component {
   }
   login() {
     Hearthstats.login(this.state.email, this.state.password)
-    .then(this.props.onLogin)
+    .then(token => {
+      this.props.onLogin(token)
+    })
     .catch(error => console.log('login error', error));
   }
   render () {
