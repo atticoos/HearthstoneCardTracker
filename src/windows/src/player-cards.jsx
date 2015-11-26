@@ -69,9 +69,21 @@ class PlayerCards extends React.Component {
         partition[0].push(deckCardGroup);
       }
       return partition;
-    }, [[],[]]).map(partitions => {
-      // @TODO sort each partition
-      return partitions
+    }, [[],[]]).map(partition => {
+      return partition.sort((a, b) => {
+        var cardA = a[0];
+        var cardB = b[0];
+        // sort by mana cost
+        // then sort by name
+        if (cardA.cost > cardB.cost) return 1;
+        if (cardA.cost < cardB.cost) return -1;
+        var aName = cardA.name.toLowerCase().replace(/\s+/g, '');
+        var bName = cardB.name.toLowerCase().replace(/\s+/g, '');
+
+        if (aName > bName) return 1;
+        if (aName < bName) return -1;
+        return 0;
+      });
     }).reduce((flattened, partition) => {
       return flattened.concat(partition);
     }, []);

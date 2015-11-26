@@ -27,8 +27,9 @@ class Card extends React.Component {
     return (
       <div className={this.getClassName()}
            style={{backgroundImage: this.getBackgroundImage()}}>
-        {this.renderConditionalCount()}
+        <span className="cost">{this.props.card.cost}</span>
         <span className="name">{this.props.card.name}</span>
+        {this.renderConditionalCount()}
       </div>
     );
   }
