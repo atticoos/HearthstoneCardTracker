@@ -5,6 +5,15 @@
     <!-- <link rel="stylesheet" type="text/css" href="less/main.less" /> -->
   </head>
   <body>
-    This is where it all begins.
+    <div id="root"></div>
+    <script type="text/javascript">
+    import React from 'react';
+    import ReactDom from 'react-dom';
+    import App from './src/deck-manager/app';
+    ReactDom.render(
+      <App />,
+      document.getElementById('root')
+    );
+    </script>
   </body>
 </html>
